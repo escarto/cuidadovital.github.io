@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hogar Geriátrico Cuidado Vital · Cali</title>
+<meta name="description" content="Hogar geriátrico en Cali con atención médica, enfermería, fisioterapia y nutrición. Estadía permanente, temporal, Club Día y Pasa Día.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Montserrat:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#010E2E; --navy-2:#0B2347; --navy-line:#1C3A66;
+  --blue:#1E9BE6; --blue-ink:#0B6FB0; --grey:#808288;
+  --bg:#F2F6FB; --surface:#FFFFFF; --ink:#0A1A3A; --muted:#4A5670; --line:#DCE4EE;
+  --tint:#E6F2FC; --on-navy:#FFFFFF; --on-navy-muted:#AFC0D8;
+  --font-head:"Quicksand","Nunito","Varela Round",system-ui,sans-serif;
+  --font-body:"Montserrat","Helvetica Neue",Arial,system-ui,sans-serif;
+  --wrap:1160px;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#020F2C; --surface:#0A1D3F; --ink:#EAF1FA; --muted:#A9B8CD; --line:#1C3459;
+    --tint:#0F2A52; --blue-ink:#5DB9F2; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#020F2C; --surface:#0A1D3F; --ink:#EAF1FA; --muted:#A9B8CD; --line:#1C3459;
+  --tint:#0F2A52; --blue-ink:#5DB9F2; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 84px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16.5px;line-height:1.65;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--navy)}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--font-head);font-weight:700;line-height:1.12;margin:0;letter-spacing:-.01em}
+p{margin:0}
+button,input,textarea,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+.wrap{width:min(100% - 40px,var(--wrap));margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ico{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;border:0;cursor:pointer;text-decoration:none;font-family:var(--font-head);font-weight:700;font-size:1.02rem;padding:14px 24px;border-radius:999px;transition:background-color .2s,color .2s}
+.btn .ico{width:20px;height:20px}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:#1688cc}
+.btn-ghost{background:transparent;color:var(--on-navy);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--blue);color:#fff}
+.btn-line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn-line:hover{box-shadow:inset 0 0 0 1.5px var(--blue)}
+.btn-sm{padding:9px 16px;font-size:.92rem}
+.btn-danger{background:#C2352B;color:#fff}
+
+/* ---------- header ---------- */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--navy);color:var(--on-navy);border-bottom:1px solid var(--navy-line)}
+.head-in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:76px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:46px;height:auto}
+.brand-name{font-family:var(--font-head);font-weight:700;font-size:1.32rem;line-height:1;letter-spacing:-.01em}
+.brand-name b{color:var(--blue);font-weight:700}
+.brand-name span{color:#9EA1A7}
+.brand-sub{display:block;font-family:var(--font-body);font-size:.66rem;letter-spacing:.32em;color:#9EA1A7;margin-top:5px;font-weight:500}
+.nav{display:flex;align-items:center;gap:6px}
+.nav a{text-decoration:none;font-weight:500;font-size:.95rem;padding:8px 13px;border-radius:999px;color:var(--on-navy-muted)}
+.nav a:hover{color:#fff}
+.nav a[aria-current="page"]{color:#fff;background:var(--navy-2)}
+.nav .btn{margin-left:10px;color:#fff}
+.menu-btn{display:none;background:none;border:0;color:#fff;padding:8px;cursor:pointer}
+.menu-btn .ico{width:28px;height:28px}
+@media (max-width:920px){
+  .menu-btn{display:block}
+  .nav{position:fixed;inset:calc(env(safe-area-inset-top,0px) + 76px) 0 auto 0;flex-direction:column;align-items:stretch;gap:2px;background:var(--navy);padding:12px 20px 24px;border-bottom:1px solid var(--navy-line);display:none}
+  .nav.open{display:flex}
+  .nav a{padding:13px 14px;font-size:1.05rem}
+  .nav .btn{margin:10px 0 0;justify-content:center}
+}
+
+/* ---------- hero ---------- */
+.hero{background:var(--navy);color:var(--on-navy);position:relative;overflow:hidden}
+.hero-arcs{position:absolute;inset:0;pointer-events:none}
+.hero-in{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:84px 0 100px}
+.hero-kicker{color:var(--blue);font-family:var(--font-head);font-weight:600;font-size:1.08rem;margin-bottom:18px}
+.hero h1{font-size:clamp(2.6rem,5.6vw,4.4rem);line-height:1.04;max-width:12ch}
+.hero-lead{color:var(--on-navy-muted);font-size:1.15rem;max-width:34ch;margin-top:24px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:44px;color:var(--on-navy-muted);font-size:.93rem}
+.hero-meta span{display:inline-flex;align-items:center;gap:8px}
+.hero-meta .ico{width:18px;height:18px;color:var(--blue)}
+.orbit{position:relative;width:min(100%,520px);aspect-ratio:1;margin-inline:auto}
+.orbit-ring{position:absolute;inset:0;border-radius:50%;border:2px solid var(--blue)}
+.orbit-photo{position:absolute;inset:6%;border-radius:50%;overflow:hidden;background:#dfe6ee}
+.orbit-photo img{width:100%;height:100%;object-fit:cover;transform:scale(1.03)}
+.orbit-track{position:absolute;inset:0;transform:rotate(0deg)}
+.orbit-dot{position:absolute;right:-13px;top:50%;width:26px;height:26px;margin-top:-13px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 6px var(--navy)}
+.orbit-grey{position:absolute;left:9%;top:9%;width:16px;height:16px;border-radius:50%;background:var(--grey)}
+@media (prefers-reduced-motion:no-preference){
+  .orbit-track{animation:travel 2.2s cubic-bezier(.2,.7,.2,1) .25s both}
+  @keyframes travel{from{transform:rotate(-200deg)}to{transform:rotate(0deg)}}
+}
+@media (max-width:860px){
+  .hero-in{grid-template-columns:1fr;padding:48px 0 72px;gap:44px}
+  .orbit{width:min(86%,400px);order:-1}
+}
+
+/* ---------- sections ---------- */
+.sec{padding:104px 0}
+.sec-head{max-width:640px;margin-bottom:48px}
+.kicker{color:var(--blue-ink);font-family:var(--font-head);font-weight:700;font-size:1.02rem;margin-bottom:12px}
+.sec h2{font-size:clamp(2rem,4vw,3rem)}
+.sec-head p{color:var(--muted);margin-top:16px;font-size:1.06rem}
+@media (max-width:700px){.sec{padding:72px 0}}
+
+/* welcome */
+.welcome{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.welcome-text p{color:var(--muted);margin-top:18px;max-width:60ch}
+.welcome-text p strong{color:var(--ink)}
+.arch{position:relative;max-width:380px;margin-inline:auto;width:100%}
+.arch::before{content:"";position:absolute;inset:-18px -18px 40px 18px;border:2px solid var(--blue);border-bottom:0;border-radius:999px 999px 0 0}
+.arch img{position:relative;width:100%;aspect-ratio:560/822;object-fit:cover;border-radius:999px 999px 28px 28px}
+.purpose{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:80px;border-top:1px solid var(--line)}
+.purpose div{padding:28px 28px 0 0;display:flex;gap:16px;align-items:flex-start}
+.purpose div+div{padding-left:28px;border-left:1px solid var(--line)}
+.purpose .badge{width:52px;height:52px;border-radius:50%;background:var(--navy);color:var(--blue);display:grid;place-items:center;flex:none}
+.purpose h3{font-size:1.45rem}
+.purpose p{color:var(--muted);font-size:.95rem;margin-top:6px}
+@media (max-width:860px){
+  .welcome{grid-template-columns:1fr;gap:56px}
+  .purpose{grid-template-columns:1fr;margin-top:56px}
+  .purpose div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+  .purpose div{padding:22px 0}
+}
+
+/* about (navy) */
+.about{background:var(--navy);color:var(--on-navy);position:relative;overflow:hidden}
+.about .kicker{color:var(--blue)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about-photo{position:relative}
+.about-photo img{border-radius:28px;width:100%;aspect-ratio:3/2;object-fit:cover}
+.about-photo::after{content:"";position:absolute;right:-34px;bottom:-34px;width:150px;height:150px;border:2px solid var(--blue);border-radius:50%;pointer-events:none}
+.about h2{font-size:clamp(1.9rem,3.6vw,2.7rem)}
+.mission{margin-top:32px;background:var(--navy-2);border-radius:22px;padding:28px 30px}
+.mission h3{font-size:1.05rem;color:var(--blue);font-weight:700}
+.mission p{font-style:italic;font-size:1.14rem;line-height:1.55;margin-top:10px;color:#fff}
+.team{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;padding:0;list-style:none}
+.team li{background:var(--navy-2);border-radius:999px;padding:9px 18px;font-weight:600;font-size:.93rem}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr;gap:56px}.about-photo::after{right:-14px;bottom:-30px;width:110px;height:110px}}
+
+/* services */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.tab{border:0;cursor:pointer;background:var(--surface);color:var(--ink);font-family:var(--font-head);font-weight:700;font-size:1.05rem;padding:12px 22px;border-radius:999px;box-shadow:inset 0 0 0 1.5px var(--line)}
+.tab[aria-selected="true"]{background:var(--navy);color:#fff;box-shadow:none}
+.panel{background:var(--surface);border-radius:28px;overflow:hidden;border:1px solid var(--line)}
+.panel-photo img{width:100%;height:clamp(180px,26vw,300px);object-fit:cover}
+.panel-body{padding:40px 44px 44px}
+.panel-body h3{font-size:clamp(1.6rem,3vw,2.2rem)}
+.svc{display:grid;grid-template-columns:1fr 1fr;column-gap:44px;margin-top:22px;padding:0;list-style:none}
+.svc li{display:flex;gap:16px;padding:20px 0;border-top:1px solid var(--line)}
+.svc .i{width:46px;height:46px;border-radius:50%;background:var(--tint);color:var(--blue-ink);display:grid;place-items:center;flex:none}
+.svc h4{font-family:var(--font-body);font-weight:600;font-size:1.06rem;line-height:1.3}
+.svc p{color:var(--muted);font-size:.95rem;margin-top:4px}
+@media (max-width:760px){.svc{grid-template-columns:1fr}.panel-body{padding:28px 22px 30px}}
+
+/* plans */
+.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.plan{background:var(--surface);border-radius:24px;padding:28px 24px 30px;border:1px solid var(--line);display:flex;flex-direction:column}
+.plan .badge{width:54px;height:54px;border-radius:50%;background:var(--navy);color:var(--blue);display:grid;place-items:center;margin-bottom:26px}
+.plan h3{font-size:1.6rem}
+.plan p{color:var(--muted);font-size:.95rem;margin-top:12px}
+.plans-cta{margin-top:22px;background:var(--navy);color:#fff;border-radius:24px;padding:34px 38px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
+.plans-cta h3{font-size:1.65rem}
+.plans-cta p{color:var(--on-navy-muted);margin-top:6px}
+@media (max-width:980px){.plans{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.plans{grid-template-columns:1fr}.plans-cta{padding:28px 24px}}
+
+/* blog cards */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.post-card{background:var(--surface);border-radius:24px;overflow:hidden;border:1px solid var(--line);display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.post-card img{width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--tint)}
+.post-card .pc-body{padding:22px 24px 26px;display:flex;flex-direction:column;flex:1}
+.post-meta{font-size:.84rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 14px}
+.post-meta b{color:var(--blue-ink);font-weight:600}
+.post-card h3{font-size:1.32rem;margin-top:10px}
+.post-card:hover h3{color:var(--blue-ink)}
+.post-card p{color:var(--muted);font-size:.95rem;margin-top:10px}
+.post-card .more{margin-top:auto;padding-top:18px;font-weight:600;font-size:.93rem;color:var(--blue-ink)}
+.blog-foot{margin-top:36px;display:flex;justify-content:center}
+.empty{background:var(--surface);border:1.5px dashed var(--line);border-radius:24px;padding:48px 28px;text-align:center;color:var(--muted)}
+@media (max-width:980px){.posts{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.posts{grid-template-columns:1fr}}
+
+/* contact */
+.contact{background:var(--navy);color:#fff;position:relative;overflow:hidden;padding-bottom:0}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;position:relative}
+.contact h2{font-size:clamp(2.2rem,4.6vw,3.4rem);max-width:13ch}
+.contact-list{list-style:none;padding:0;margin:36px 0 0;display:grid;gap:18px}
+.contact-list li{display:flex;gap:14px;align-items:flex-start}
+.contact-list .ico{color:var(--blue);margin-top:3px}
+.contact-list a{text-decoration:none}
+.contact-list a:hover{color:var(--blue)}
+.contact-list small{display:block;color:var(--on-navy-muted);font-size:.86rem}
+.form{background:var(--navy-2);border-radius:26px;padding:32px;display:grid;gap:16px;align-self:start;margin-bottom:96px}
+.form h3{font-size:1.45rem}
+.form p.hint{color:var(--on-navy-muted);font-size:.92rem;margin-top:-6px}
+.field label{display:block;font-size:.88rem;font-weight:600;margin-bottom:6px;color:#DCE6F3}
+.field input,.field select,.field textarea{width:100%;background:var(--navy);border:1.5px solid var(--navy-line);border-radius:14px;padding:12px 14px;color:#fff}
+.field textarea{min-height:110px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form{grid-column:2;grid-row:1/3}
+.contact-photo{grid-column:1;grid-row:2;align-self:end;margin-top:12px}
+.contact-photo img{width:min(500px,100%);border-radius:260px 260px 0 0;aspect-ratio:1000/728;object-fit:cover;object-position:center top}
+@media (max-width:860px){.contact-grid{grid-template-columns:1fr}.form,.contact-photo{grid-column:auto;grid-row:auto}.row2{grid-template-columns:1fr}.form{padding:24px}}
+
+.site-foot{background:var(--navy);color:var(--on-navy-muted);border-top:1px solid var(--navy-line);padding:40px 0 48px;font-size:.9rem}
+.foot-in{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center}
+.site-foot img{width:150px}
+.site-foot a{text-decoration:none}
+.site-foot a:hover{color:#fff}
+.foot-links{display:flex;flex-wrap:wrap;gap:6px 22px}
+
+/* ---------- blog page ---------- */
+.page-hero{background:var(--navy);color:#fff;padding:72px 0 64px;position:relative;overflow:hidden}
+.page-hero h1{font-size:clamp(2.4rem,5vw,3.8rem)}
+.page-hero p{color:var(--on-navy-muted);margin-top:16px;max-width:52ch;font-size:1.1rem}
+.page-hero .kicker{color:var(--blue)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.chip{border:0;cursor:pointer;background:var(--surface);box-shadow:inset 0 0 0 1.5px var(--line);border-radius:999px;padding:9px 18px;font-weight:600;font-size:.92rem}
+.chip[aria-pressed="true"]{background:var(--blue);color:#fff;box-shadow:none}
+.admin-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;background:var(--tint);border-radius:18px;padding:16px 20px;margin-bottom:32px;font-size:.93rem}
+.admin-bar .ico{color:var(--blue-ink)}
+.admin-bar span{display:flex;gap:10px;align-items:center}
+
+/* article */
+.article{padding:56px 0 96px}
+.article-in{width:min(100% - 40px,760px);margin-inline:auto}
+.back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;color:var(--blue-ink);font-size:.95rem}
+.article h1{font-size:clamp(2rem,4.6vw,3.1rem);margin-top:22px}
+.article .post-meta{margin-top:16px;font-size:.92rem}
+.article-cover{margin:34px 0 8px;border-radius:24px;width:100%;aspect-ratio:16/9;object-fit:cover}
+.prose{font-size:1.08rem;line-height:1.78}
+.prose p{margin-top:1.15em}
+.prose h2{font-size:1.6rem;margin-top:1.8em}
+.prose ul{padding-left:1.25em;margin:1em 0 0}
+.prose li{margin-top:.45em}
+.prose li::marker{color:var(--blue)}
+.prose strong{font-weight:600}
+.article-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px;padding-top:28px;border-top:1px solid var(--line)}
+.article-cta{margin-top:40px;background:var(--navy);color:#fff;border-radius:24px;padding:30px 32px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+.article-cta h3{font-size:1.4rem}
+.article-cta p{color:var(--on-navy-muted);font-size:.95rem;margin-top:4px}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:100;background:rgba(1,10,30,.62);display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:calc(env(safe-area-inset-top,0px) + 24px) 16px calc(env(safe-area-inset-bottom,0px) + 24px)}
+.modal.open{display:flex}
+.dialog{background:var(--surface);color:var(--ink);width:min(720px,100%);border-radius:24px;padding:30px;display:grid;gap:16px}
+.dialog.small{width:min(440px,100%)}
+.dialog h2{font-size:1.6rem}
+.dialog .field label{color:var(--ink)}
+.dialog .field input,.dialog .field select,.dialog .field textarea{background:var(--bg);border-color:var(--line);color:var(--ink)}
+.dialog .field textarea{min-height:260px;font-size:.96rem;line-height:1.6}
+.dialog .help{font-size:.84rem;color:var(--muted);margin-top:6px}
+.dialog-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end;margin-top:6px}
+.cover-pick{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.cover-pick img{width:120px;aspect-ratio:16/10;object-fit:cover;border-radius:12px;background:var(--tint)}
+.cover-pick label.btn{cursor:pointer}
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 22px);transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:999px;font-size:.93rem;z-index:120;display:none;max-width:calc(100% - 32px);text-align:center}
+.toast.show{display:block}
+
+.wa-float{position:fixed;right:18px;bottom:calc(env(safe-area-inset-bottom,0px) + 18px);z-index:40;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(1,14,46,.28)}
+.wa-float .ico{width:28px;height:28px;stroke-width:2}
+/* ---------- v3: moderno ---------- */
+:root{--soft:#EAF2FA}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--soft:#061A3A}}
+:root[data-theme="dark"]{--soft:#061A3A}
+.site-head{background:rgba(1,14,46,.92);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px)}
+.btn{border-radius:14px}
+.btn-sm{border-radius:12px}
+.hero-in{padding:80px 0 150px}
+.hero-kicker{display:inline-flex;align-items:center;gap:10px;background:rgba(30,155,230,.12);border:1px solid rgba(30,155,230,.35);border-radius:999px;padding:7px 16px;font-size:.95rem}
+.live{width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(30,155,230,.25)}
+.hero h1{max-width:11ch}
+.float-chip{position:absolute;z-index:3;display:flex;gap:12px;align-items:center;background:#fff;color:#0A1A3A;border-radius:18px;padding:13px 16px;box-shadow:0 18px 40px rgba(0,0,0,.28);max-width:250px}
+.float-chip .ico{width:38px;height:38px;padding:9px;border-radius:12px;background:#E6F2FC;color:#0B6FB0}
+.float-chip b{display:block;font-family:var(--font-head);font-size:1rem;line-height:1.2}
+.float-chip small{color:#4A5670;font-size:.8rem;line-height:1.35;display:block}
+.chip-a{left:-34px;bottom:12%}
+.chip-b{right:-26px;top:6%}
+@media (max-width:1080px){.chip-b{display:none}}
+@media (max-width:860px){.hero-in{padding:40px 0 120px}.chip-a{left:-8px;bottom:2%}}
+
+.purpose-bar{position:relative;z-index:5;margin-top:-72px;display:grid;grid-template-columns:repeat(3,1fr);background:var(--surface);border-radius:26px;box-shadow:0 24px 60px rgba(1,14,46,.14);border:1px solid var(--line)}
+.purpose-bar>div{display:flex;gap:16px;align-items:flex-start;padding:30px 30px}
+.purpose-bar>div+div{border-left:1px solid var(--line)}
+.purpose-bar .ico{width:48px;height:48px;padding:12px;border-radius:50%;background:var(--navy);color:var(--blue)}
+.purpose-bar h3{font-size:1.4rem}
+.purpose-bar p{color:var(--muted);font-size:.93rem;margin-top:4px}
+@media (max-width:860px){.purpose-bar{grid-template-columns:1fr;width:min(100% - 32px,1160px)}.purpose-bar>div+div{border-left:0;border-top:1px solid var(--line)}.purpose-bar>div{padding:22px}}
+
+.sec-soft{background:var(--soft)}
+.sec-lead{color:var(--muted);margin-top:16px;font-size:1.06rem;max-width:56ch}
+.collage{position:relative;padding-bottom:24%}
+.collage img{border-radius:28px;object-fit:cover}
+.collage .c1{width:80%;aspect-ratio:4/3}
+.collage .c2{position:absolute;right:0;bottom:0;width:62%;aspect-ratio:16/10;border:8px solid var(--bg);border-radius:34px}
+.c-ring{position:absolute;top:-22px;right:8%;width:120px;height:120px;border:2px solid var(--blue);border-radius:50%}
+.c-ring::after{content:"";position:absolute;right:4px;top:22px;width:16px;height:16px;border-radius:50%;background:var(--blue)}
+
+
+.about-photo img{border-radius:28px;aspect-ratio:4/3;object-fit:cover;object-position:40% center}
+.about-photo::after{border-color:var(--blue)}
+#nosotros h2{font-size:clamp(1.9rem,3.6vw,2.7rem)}
+#nosotros .mission{background:var(--surface);border:1px solid var(--line)}
+#nosotros .mission p{color:var(--ink)}
+#nosotros .mission h3{color:var(--blue-ink)}
+#nosotros .team li{background:var(--surface);border:1px solid var(--line);display:inline-flex;align-items:center;gap:8px;color:var(--ink)}
+#nosotros .team .ico{width:18px;height:18px;color:var(--blue-ink)}
+
+.day{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.day .kicker{color:#7CC8F5}
+.day h2{max-width:20ch}
+.day .sec-lead{color:var(--on-navy-muted)}
+.timeline{list-style:none;padding:0;margin:60px 0 0;display:grid;grid-template-columns:repeat(5,1fr);position:relative}
+.timeline::before{content:"";position:absolute;left:0;right:0;top:27px;height:2px;background:linear-gradient(90deg,var(--blue),#5F86BF 60%,#2A4A80)}
+.timeline li{position:relative;padding-right:22px}
+.t-dot{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--navy);border:2px solid var(--blue);color:var(--blue);position:relative}
+.t-dot .ico{width:24px;height:24px}
+.timeline .when{display:block;font-family:var(--font-head);font-weight:700;color:#7CC8F5;margin-top:22px;font-size:.98rem}
+.timeline h3{font-size:1.3rem;margin-top:6px}
+.timeline p{color:var(--on-navy-muted);font-size:.95rem;margin-top:8px}
+@media (max-width:940px){
+  .timeline{grid-template-columns:1fr;gap:30px}
+  .timeline::before{left:27px;right:auto;top:0;bottom:0;width:2px;height:auto;background:linear-gradient(180deg,var(--blue),#2A4A80)}
+  .timeline li{display:grid;grid-template-columns:56px 1fr;column-gap:20px;padding:0}
+  .timeline li>div{grid-column:2}
+  .timeline .when{margin-top:4px}
+}
+
+.tab{border-radius:14px}
+.panel{display:grid;grid-template-columns:.9fr 1.1fr;border-radius:30px}
+.panel-photo img{height:100%;min-height:100%;object-fit:cover}
+@media (max-width:900px){.panel{grid-template-columns:1fr}.panel-photo img{height:240px}}
+.panel .svc{grid-template-columns:1fr 1fr;column-gap:28px}
+@media (max-width:1100px){.panel .svc{grid-template-columns:1fr}}
+
+.plan{padding:0;overflow:hidden;border-radius:26px}
+.plan-img{position:relative}
+.plan-img img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.plan-ico{position:absolute;left:20px;bottom:-26px;width:54px;height:54px;border-radius:50%;background:var(--navy);color:var(--blue);display:grid;place-items:center;border:4px solid var(--surface)}
+.plan-body{padding:40px 24px 26px;display:flex;flex-direction:column;flex:1}
+.plan-body h3{font-size:1.45rem}
+.plan-body .for{font-weight:600;color:var(--blue-ink);font-size:.9rem;margin-top:12px}
+.plan-body p{margin-top:6px}
+.plan-link{margin-top:auto;padding-top:20px;display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--blue-ink);text-decoration:none;font-size:.95rem}
+.plan-link .ico{width:18px;height:18px}
+.plan-link:hover{text-decoration:underline}
+
+.row-head{max-width:none;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px}
+.post-card{border-radius:26px}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="#/" aria-label="Cuidado Vital, inicio">
+      <img src="img/logo-marca.png" alt="">
+      <div>
+        <div class="brand-name"><b>Cuidado</b><span>Vital</span></div>
+        <span class="brand-sub">HOGAR GERIÁTRICO</span>
+      </div>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><svg class="ico" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#/nosotros" data-nav="nosotros">Nosotros</a>
+      <a href="#/un-dia" data-nav="un-dia">Un día aquí</a>
+      <a href="#/servicios" data-nav="servicios">Servicios</a>
+      <a href="#/planes" data-nav="planes">Planes</a>
+      <a href="#/blog" data-nav="blog">Blog</a>
+      <a href="#/contacto" data-nav="contacto">Contacto</a>
+      <a class="btn btn-blue btn-sm" href="https://wa.me/573052561326?text=Hola%2C%20quisiera%20agendar%20una%20visita%20al%20Hogar%20Cuidado%20Vital." target="_blank" rel="noopener">Agendar visita</a>
+    </nav>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer class="site-foot">
+  <div class="wrap foot-in">
+    <img src="img/logo.png" alt="Cuidado Vital, hogar geriátrico">
+    <div class="foot-links">
+      <a href="tel:+573052561326">305 256 1326</a>
+      <a href="tel:+573103423463">310 342 3463</a>
+      <a href="mailto:hgcvcali@gmail.com">hgcvcali@gmail.com</a>
+      <span>Av. 4 N # 48-21, Barrio La Flora, Cali</span>
+    </div>
+    <div>© <span id="year">2026</span> Hogar Geriátrico Cuidado Vital</div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/573052561326" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg class="ico" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></a>
+
+<div class="modal" id="editor" role="dialog" aria-modal="true" aria-labelledby="edTitle"></div>
+<div class="modal" id="confirm" role="dialog" aria-modal="true"></div>
+<div class="toast" id="toast" role="status"></div>
+
+<!--BLOG-DATA-->
+<script type="application/json" id="blog-data">[{"id": "p1", "slug": "como-saber-si-es-momento-de-un-hogar-geriatrico", "title": "¿Cómo saber si es el momento de buscar un hogar geriátrico?", "category": "Familias", "date": "2026-10-08", "cover": "@pl1", "excerpt": "Algunas señales que ayudan a las familias a tomar esta decisión con calma y sin culpa.", "body": "Tomar la decisión de buscar un hogar geriátrico para un ser querido no es fácil. Muchas familias sienten culpa o temen que su familiar se sienta abandonado. Sin embargo, buscar apoyo profesional es, muchas veces, la forma más responsable de cuidar.\n\n## Señales a las que vale la pena prestar atención\n\n- El cuidado diario necesita más horas de las que la familia puede dar.\n- Ha habido caídas, olvidos con los medicamentos u otros riesgos en casa.\n- Su familiar pasa mucho tiempo solo y se ve triste o aislado.\n- Quien cuida se siente agotado, con problemas de sueño o de salud.\n- Las necesidades médicas aumentaron y requieren seguimiento constante.\n\n## Qué observar cuando visite un hogar\n\nVisite el lugar en persona y con tiempo. Fíjese en el trato del personal con los residentes, en la limpieza de los espacios y en las actividades que se ofrecen durante el día. Pregunte quiénes conforman el equipo de salud, cómo se administran los medicamentos y cómo se atienden las emergencias.\n\nTambién es importante saber si las visitas son flexibles: la presencia de la familia sigue siendo parte esencial del bienestar del adulto mayor.\n\n## No tiene que ser una decisión definitiva\n\nExisten modalidades como la **estadía temporal**, el **Club Día** o el **Pasa Día**, que permiten conocer el hogar poco a poco y darle a la familia un respiro sin cambios bruscos.\n\nSi tiene dudas, lo invitamos a conocernos. Con gusto le mostramos el hogar y resolvemos sus preguntas."}, {"id": "p2", "slug": "ideas-para-prevenir-caidas-en-casa", "title": "Seis ideas para prevenir caídas en casa", "category": "Prevención", "date": "2026-09-24", "cover": "@pl2", "excerpt": "Cambios sencillos en el hogar que hacen una gran diferencia en la seguridad de los adultos mayores.", "body": "Las caídas son uno de los accidentes más frecuentes en los adultos mayores y pueden afectar mucho su independencia. La buena noticia es que muchas se pueden prevenir con cambios simples.\n\n## En la casa\n\n- **Buena iluminación**, sobre todo en el camino entre la habitación y el baño. Una luz nocturna ayuda mucho.\n- **Retire tapetes sueltos**, cables y objetos del piso por donde se camina.\n- **Instale barras de apoyo** en el baño y la ducha, y use alfombras antideslizantes.\n\n## En la persona\n\n- **Calzado cerrado y antideslizante**, que sujete bien el pie. Evite pantuflas sueltas.\n- **Revise los medicamentos con el médico**: algunos pueden causar mareo o somnolencia.\n- **Mantenerse activo**: la fisioterapia y el ejercicio guiado fortalecen el equilibrio y la fuerza.\n\n## Si ocurre una caída\n\nAunque la persona diga que se siente bien, informe al médico tratante. Una caída puede ser señal de un problema de salud que conviene revisar.\n\nEn Cuidado Vital la prevención de riesgos hace parte del cuidado diario, con supervisión de día y rondas durante la noche."}, {"id": "p3", "slug": "la-compania-tambien-es-salud", "title": "La compañía también es salud", "category": "Bienestar", "date": "2026-09-10", "cover": "@pl3", "excerpt": "Por qué las actividades, las visitas y los vínculos son tan importantes como cualquier tratamiento.", "body": "Cuando pensamos en el cuidado de un adulto mayor solemos pensar primero en medicamentos y controles médicos. Pero sentirse acompañado, útil y querido tiene un efecto enorme en su salud física y emocional.\n\n## Actividades que dan sentido al día\n\nLas actividades sociales, espirituales, lúdicas y culturales ayudan a mantener la mente activa, mejoran el ánimo y crean nuevas amistades. Juegos de mesa, música, manualidades o un momento de oración pueden convertirse en lo mejor del día.\n\n## Cómo aprovechar las visitas familiares\n\n- Lleve fotografías y pida que le cuente las historias detrás de ellas.\n- Pongan juntos la música que le gustaba en su juventud.\n- Compartan una comida o un postre favorito, siempre de acuerdo con su dieta.\n- Más que la duración, importa la frecuencia: visitas cortas y constantes valen mucho.\n\n## Un hogar con las puertas abiertas\n\nEn Cuidado Vital tenemos horarios de visita flexibles porque creemos que la familia es parte del equipo. Cuidamos a los tuyos como si fueran nuestros."}]</script>
+<!--/BLOG-DATA-->
+
+<script>
+(function(){
+"use strict";
+// Copia exacta de la página al cargar: base para publicar nuevas versiones del blog.
+const SRC = "<!DOCTYPE html>\n" + document.documentElement.outerHTML.replace(/<html[^>]*>/, '<html lang="es">');
+
+const IMG = { hero:"img/hero.jpg", col1:"img/col1.jpg", col2:"img/col2.jpg", about:"img/about.jpg", s1:"img/s1.jpg", s2:"img/s2.jpg", s3:"img/s3.jpg", pl1:"img/pl1.jpg", pl2:"img/pl2.jpg", pl3:"img/pl3.jpg", contact:"img/contact.jpg" };
+const WA = "573052561326";
+const waLink = t => "https://wa.me/" + WA + "?text=" + encodeURIComponent(t);
+
+const I = {
+  heart:'<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>',
+  shield:'<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>',
+  shieldCheck:'<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
+  rotate:'<path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/>',
+  clip:'<rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/>',
+  steth:'<path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/>',
+  chart:'<path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/>',
+  clock:'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+  pulse:'<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/>',
+  pill:'<path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/>',
+  scale:'<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>',
+  cal:'<rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/>',
+  food:'<path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>',
+  user:'<circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/>',
+  smile:'<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/>',
+  moon:'<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
+  home:'<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/>',
+  shirt:'<path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/>',
+  wifi:'<path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.86a10 10 0 0 1 14 0"/><path d="M8.5 16.43a5 5 0 0 1 7 0"/>',
+  bell:'<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>',
+  lock:'<rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+  users:'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>',
+  phone:'<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>',
+  mail:'<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>',
+  pin:'<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+  chat:'<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
+  back:'<path d="m12 19-7-7 7-7M19 12H5"/>',
+  plus:'<path d="M12 5v14M5 12h14"/>',
+  pen:'<path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>',
+  trash:'<path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2"/>',
+  image:'<rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.09-3.09a2 2 0 0 0-2.82 0L6 21"/>',
+  x:'<path d="M18 6 6 18M6 6l12 12"/>',
+  menu:'<path d="M4 6h16M4 12h16M4 18h16"/>',
+  sunrise:'<path d="M12 2v8M4.93 10.93l1.41 1.41M2 18h2M20 18h2M19.07 10.93l-1.41 1.41M22 22H2M8 6l4-4 4 4M16 18a4 4 0 0 0-8 0"/>'
+};
+const ico = (n, cls) => '<svg class="ico' + (cls ? ' ' + cls : '') + '" viewBox="0 0 24 24" aria-hidden="true">' + I[n] + '</svg>';
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+/* ---------------- contenido ---------------- */
+const SERVICES = [
+  { id:"salud", name:"Atención en salud", img:"s1", items:[
+    ["clip","Evaluación inicial de ingreso","Valoración de cada huésped al momento de su llegada al hogar."],
+    ["steth","Evaluación médica mensual","Valoración médica de cada huésped todos los meses."],
+    ["chart","Seguimiento periódico","Acompañamiento ajustado al nivel de cuidado que requiere cada huésped."],
+    ["clock","Asistencia médica 24 horas","Coordinación de atención médica de primer contacto con empresas especializadas."],
+    ["pulse","Cuidados de enfermería","Cuidados básicos, toma y seguimiento de signos vitales, glucometrías y oximetrías."],
+    ["pill","Administración de medicamentos","Según la formulación previa de los médicos tratantes."],
+    ["scale","Control de peso y talla","Registro y seguimiento del peso y la talla de cada huésped."],
+    ["cal","Acompañamiento médico","Acompañamiento para citas y trámites médicos."]
+  ]},
+  { id:"bienestar", name:"Bienestar y vida diaria", img:"s2", items:[
+    ["food","Alimentación personalizada","Dietas acordes a las condiciones de salud y comorbilidades de cada huésped."],
+    ["user","Actividades de la vida diaria","Supervisión que nos permite orientar a las familias para favorecer el bienestar de nuestros huéspedes."],
+    ["smile","Actividades y estimulación","Actividades sociales, espirituales, religiosas, lúdicas y culturales para la estimulación física, emocional y cognitiva."],
+    ["moon","Rondas nocturnas","Acompañamiento y supervisión también durante la noche."],
+    ["shieldCheck","Prevención de riesgos","Supervisión y seguimiento de los riesgos de acuerdo con los servicios contratados."]
+  ]},
+  { id:"hogar", name:"Hogar y seguridad", img:"s3", items:[
+    ["home","Aseo de la habitación","Aseo diario y mantenimiento general de la habitación."],
+    ["shirt","Lavandería","Lavado y cuidado de la ropa personal."],
+    ["wifi","Servicios incluidos","Servicios públicos, Wi-Fi y televisión por cable."],
+    ["bell","Llamado de emergencia","Servicio de llamada de emergencia siempre disponible."],
+    ["lock","Vigilancia 24/7","Vigilancia y seguridad privada todos los días, a toda hora."],
+    ["users","Visitas flexibles","Horarios de visita flexibles para que la familia esté cerca."]
+  ]}
+];
+const PLANS = [
+  {icon:"home", img:"pl1", name:"Estadía permanente", text:"Adultos mayores que necesitan cuidado y acompañamiento continuo, y familias que buscan un hogar seguro donde su ser querido viva con atención profesional todos los días."},
+  {icon:"cal", img:"pl2", name:"Estadía temporal", text:"Quienes se recuperan de una cirugía, una hospitalización o una enfermedad, y familias que viajan o necesitan un respiro durante un tiempo definido."},
+  {icon:"sun", img:"pl3", name:"Club Día", text:"Adultos mayores que viven con su familia y disfrutan de compañía, actividades y supervisión durante el día, mientras sus familiares trabajan o atienden sus compromisos."},
+  {icon:"clock", img:"col2", name:"Pasa Día", text:"Familias que necesitan apoyo en un día puntual, o que quieren que su familiar conozca el hogar y su ambiente antes de tomar una decisión."}
+];
+const DAY = [
+  ["sunrise","Al despertar","Buenos días","Supervisión de las actividades diarias y toma de signos vitales."],
+  ["food","Desayuno","Comida a su medida","Alimentación de acuerdo con la dieta de cada huésped."],
+  ["smile","Mañana y tarde","Mente y cuerpo activos","Actividades lúdicas, culturales y espirituales, y terapias."],
+  ["users","En la tarde","Tiempo en familia","Visitas flexibles para compartir con los suyos."],
+  ["moon","En la noche","Descanso tranquilo","Rondas nocturnas y llamado de emergencia siempre disponible."]
+];
+
+/* ---------------- blog data ---------------- */
+let POSTS = [];
+try { POSTS = JSON.parse(document.getElementById("blog-data").textContent || "[]"); } catch(e) { POSTS = []; }
+const sorted = () => POSTS.slice().sort((a,b) => (b.date||"").localeCompare(a.date||""));
+const coverSrc = c => !c ? "" : (c.startsWith("@") ? (IMG[c.slice(1)] || "") : c);
+const fmtDate = d => { try { return new Date(d + "T12:00:00").toLocaleDateString("es-CO",{day:"numeric",month:"long",year:"numeric"}); } catch(e){ return d; } };
+const readMin = body => Math.max(1, Math.round(String(body||"").split(/\s+/).length / 200));
+const slugify = s => String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,70) || "entrada";
+
+function inline(s){
+  return esc(s).replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/\*(.+?)\*/g,"<em>$1</em>");
+}
+function renderBody(text){
+  const blocks = String(text||"").replace(/\r/g,"").split(/\n\s*\n/);
+  return blocks.map(b => {
+    const lines = b.split("\n").filter(l => l.trim());
+    if (!lines.length) return "";
+    if (lines[0].startsWith("## ")) {
+      const h = "<h2>" + inline(lines[0].slice(3)) + "</h2>";
+      const rest = lines.slice(1).join("\n");
+      return h + (rest ? renderBody(rest) : "");
+    }
+    if (lines.every(l => /^\s*[-•]\s+/.test(l))) {
+      return "<ul>" + lines.map(l => "<li>" + inline(l.replace(/^\s*[-•]\s+/,"")) + "</li>").join("") + "</ul>";
+    }
+    return "<p>" + lines.map(inline).join("<br>") + "</p>";
+  }).join("");
+}
+
+/* ---------------- views ---------------- */
+const app = document.getElementById("app");
+
+function postCard(p){
+  return '<a class="post-card" href="#/blog/' + esc(p.slug) + '">' +
+    (p.cover ? '<img src="' + coverSrc(p.cover) + '" alt="">' : '') +
+    '<div class="pc-body"><div class="post-meta"><b>' + esc(p.category||"General") + '</b><span>' + fmtDate(p.date) + '</span></div>' +
+    '<h3>' + esc(p.title) + '</h3><p>' + esc(p.excerpt) + '</p><span class="more">Leer entrada</span></div></a>';
+}
+
+function homeView(){
+  const svcTabs = SERVICES.map((s,i) => '<button class="tab" role="tab" id="tab-' + s.id + '" aria-controls="svc-panel" aria-selected="' + (i===0) + '" data-svc="' + i + '">' + s.name + '</button>').join("");
+  const latest = sorted().slice(0,3);
+  return `
+<section class="hero" id="inicio">
+  <svg class="hero-arcs" viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <circle cx="160" cy="720" r="540" fill="none" stroke="#ffffff" stroke-opacity=".07"/>
+    <circle cx="1180" cy="30" r="300" fill="none" stroke="#ffffff" stroke-opacity=".06"/>
+  </svg>
+  <div class="wrap hero-in">
+    <div>
+      <p class="hero-kicker"><span class="live"></span>Hogar geriátrico en Cali</p>
+      <h1>Cuidar, proteger y rehabilitar</h1>
+      <p class="hero-lead">Atención integral para los adultos mayores, con el calor de una gran familia.</p>
+      <div class="hero-actions">
+        <a class="btn btn-blue" href="${waLink("Hola, quisiera agendar una visita al Hogar Cuidado Vital.")}" target="_blank" rel="noopener">${ico("chat")}Agendar una visita</a>
+        <a class="btn btn-ghost" href="#/planes">Conocer los planes</a>
+      </div>
+    </div>
+    <div class="orbit">
+      <span class="orbit-grey"></span>
+      <div class="orbit-ring"></div>
+      <div class="orbit-photo"><img src="${IMG.hero}" alt="Cuidadora abrazando a una adulta mayor sonriente"></div>
+      <div class="orbit-track"><span class="orbit-dot"></span></div>
+      <div class="float-chip chip-a">${ico("clock")}<span><b>Atención 24 horas</b><small>Día y noche, todos los días</small></span></div>
+      <div class="float-chip chip-b">${ico("users")}<span><b>Equipo de salud</b><small>Médicos, enfermería, fisioterapia y nutrición</small></span></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap purpose-bar">
+  <div>${ico("heart")}<span><h3>Cuidar</h3><p>Atención diaria, cercana y respetuosa.</p></span></div>
+  <div>${ico("shield")}<span><h3>Proteger</h3><p>Un entorno seguro, de día y de noche.</p></span></div>
+  <div>${ico("rotate")}<span><h3>Rehabilitar</h3><p>Terapias que fortalecen cuerpo y ánimo.</p></span></div>
+</div>
+
+<section class="sec" id="bienvenidos">
+  <div class="wrap welcome">
+    <div class="welcome-text">
+      <p class="kicker">Bienvenidos</p>
+      <h2>Más que un hogar, una gran familia</h2>
+      <p>En el <strong>Hogar Geriátrico Cuidado Vital</strong> ofrecemos a los adultos mayores un entorno donde se sientan seguros, valorados y rodeados de amor, con atención médica especializada, compañía y un trato cálido que respeta su dignidad y autonomía.</p>
+      <p>Trabajamos con dedicación para garantizar su salud y calidad de vida, en espacios cómodos y con actividades y terapias que fortalecen su bienestar físico y emocional.</p>
+      <p>Queremos brindar tranquilidad a las familias y asegurar que cada adulto mayor reciba el cuidado que merece.</p>
+    </div>
+    <div class="collage">
+      <img class="c1" src="${IMG.col1}" alt="Adulta mayor y cuidadora sonriendo con el pulgar arriba">
+      <img class="c2" src="${IMG.col2}" alt="Enfermera caminando del brazo con una adulta mayor">
+      <span class="c-ring" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-soft" id="nosotros">
+  <div class="wrap about-grid">
+    <div class="about-photo"><img src="${IMG.about}" alt="Enfermera acompañando a una adulta mayor"></div>
+    <div>
+      <p class="kicker">Nosotros</p>
+      <h2>Profesionales de la salud expertos en el cuidado de los adultos mayores</h2>
+      <div class="mission">
+        <h3>Nuestra misión</h3>
+        <p>Construir ecosistemas geriátricos donde podamos servir y proteger a personas que requieren cuidados especiales, mejorando su calidad de vida.</p>
+      </div>
+      <ul class="team">
+        <li>${ico("steth")}Médicos</li><li>${ico("pulse")}Enfermeros</li><li>${ico("rotate")}Fisioterapeutas</li><li>${ico("food")}Nutricionistas</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec day" id="un-dia">
+  <div class="wrap">
+    <p class="kicker">Un día en Cuidado Vital</p>
+    <h2>Así acompañamos a su familiar, de la mañana a la noche</h2>
+    <p class="sec-lead">Cada huésped tiene su ritmo. Esta es la estructura que da tranquilidad a su día.</p>
+    <ol class="timeline">
+      ${DAY.map(d => `<li><span class="t-dot">${ico(d[0])}</span><div><span class="when">${d[1]}</span><h3>${d[2]}</h3><p>${d[3]}</p></div></li>`).join("")}
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="servicios">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Servicios</p>
+      <h2>Todo lo que su familiar necesita, en un solo lugar</h2>
+      <p>Salud, vida diaria y seguridad, coordinados por un mismo equipo.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Grupos de servicios">${svcTabs}</div>
+    <div class="panel" id="svc-panel" role="tabpanel"></div>
+  </div>
+</section>
+
+<section class="sec sec-soft" id="planes">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Planes</p>
+      <h2>Un plan para cada momento de la familia</h2>
+      <p>Elija la modalidad que mejor se adapta a las necesidades de su familiar.</p>
+    </div>
+    <div class="plans">
+      ${PLANS.map(p => `<article class="plan">
+        <div class="plan-img"><img src="${IMG[p.img]}" alt=""><span class="plan-ico">${ico(p.icon)}</span></div>
+        <div class="plan-body"><h3>${p.name}</h3><p class="for">Pensado para</p><p>${p.text}</p>
+        <a class="plan-link" href="${waLink("Hola, quisiera información sobre el plan " + p.name + " de Cuidado Vital.")}" target="_blank" rel="noopener">Consultar este plan${ico("chat")}</a></div>
+      </article>`).join("")}
+    </div>
+    <div class="plans-cta">
+      <div><h3>Conozca condiciones y tarifas</h3><p>Contáctenos y agende una visita a nuestro hogar.</p></div>
+      <a class="btn btn-blue" href="${waLink("Hola, quisiera conocer las condiciones y tarifas de los planes de Cuidado Vital.")}" target="_blank" rel="noopener">${ico("chat")}Pedir información</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="blog-preview">
+  <div class="wrap">
+    <div class="sec-head row-head">
+      <div><p class="kicker">Blog</p><h2>Consejos para cuidar mejor</h2></div>
+      <a class="btn btn-line" href="#/blog">Ver todas las entradas</a>
+    </div>
+    ${latest.length ? `<div class="posts">${latest.map(postCard).join("")}</div>` : `<div class="empty">Pronto publicaremos nuestras primeras entradas.</div>`}
+  </div>
+</section>
+
+${contactSection()}`;
+}
+
+function contactSection(){
+  return `
+<section class="sec contact" id="contacto">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="kicker" style="color:var(--blue)">Contacto</p>
+      <h2>Cuidamos a los tuyos como si fueran nuestros.</h2>
+      <ul class="contact-list">
+        <li>${ico("phone")}<div><a href="tel:+573052561326">305 256 1326</a> · <a href="tel:+573103423463">310 342 3463</a><small>Llámenos o escríbanos por WhatsApp</small></div></li>
+        <li>${ico("mail")}<div><a href="mailto:hgcvcali@gmail.com">hgcvcali@gmail.com</a></div></li>
+        <li>${ico("pin")}<div><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Av. 4 N # 48-21, La Flora, Cali, Colombia")}" target="_blank" rel="noopener">Av. 4 N # 48-21, Barrio La Flora, Cali</a><small>Ver en el mapa</small></div></li>
+      </ul>
+    </div>
+    <form class="form" id="contactForm" novalidate>
+      <h3>Agende una visita</h3>
+      <p class="hint">Al enviar se abre WhatsApp con su mensaje listo.</p>
+      <div class="row2">
+        <div class="field"><label for="cf-name">Su nombre</label><input id="cf-name" required autocomplete="name"></div>
+        <div class="field"><label for="cf-phone">Teléfono</label><input id="cf-phone" type="tel" autocomplete="tel"></div>
+      </div>
+      <div class="field"><label for="cf-plan">Plan de interés</label>
+        <select id="cf-plan"><option>Aún no lo sé</option>${PLANS.map(p=>`<option>${p.name}</option>`).join("")}</select></div>
+      <div class="field"><label for="cf-msg">Cuéntenos sobre su familiar</label><textarea id="cf-msg" placeholder="Edad, necesidades de cuidado, cuándo le gustaría visitarnos…"></textarea></div>
+      <a class="btn btn-blue" id="cf-send" href="${waLink("Hola, me interesa agendar una visita al Hogar Cuidado Vital.")}" target="_blank" rel="noopener" style="justify-self:start">${ico("chat")}Enviar por WhatsApp</a>
+    </form>
+    <div class="contact-photo"><img src="${IMG.contact}" alt="Enfermera acompañando a una adulta mayor en silla de ruedas"></div>
+  </div>
+</section>`;
+}
+
+function renderPanel(i){
+  const s = SERVICES[i];
+  document.querySelectorAll(".tab").forEach((t,k) => t.setAttribute("aria-selected", String(k===i)));
+  const panel = document.getElementById("svc-panel");
+  panel.setAttribute("aria-labelledby","tab-" + s.id);
+  panel.innerHTML = `<div class="panel-photo"><img src="${IMG[s.img]}" alt=""></div>
+    <div class="panel-body"><h3>${s.name}</h3>
+    <ul class="svc">${s.items.map(it => `<li><span class="i">${ico(it[0])}</span><div><h4>${it[1]}</h4><p>${it[2]}</p></div></li>`).join("")}</ul></div>`;
+}
+
+let activeCat = "Todas";
+function blogView(){
+  const cats = ["Todas", ...new Set(sorted().map(p => p.category || "General"))];
+  if (!cats.includes(activeCat)) activeCat = "Todas";
+  const list = sorted().filter(p => activeCat === "Todas" || (p.category||"General") === activeCat);
+  return `
+<section class="page-hero">
+  <svg class="hero-arcs" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="1100" cy="20" r="260" fill="none" stroke="#1E9BE6" stroke-width="2"/></svg>
+  <div class="wrap" style="position:relative">
+    <p class="kicker">Blog Cuidado Vital</p>
+    <h1>Consejos para cuidar mejor</h1>
+    <p>Salud, bienestar y vida diaria del adulto mayor. Ideas prácticas para familias y cuidadores.</p>
+  </div>
+</section>
+<section class="sec" style="padding-top:48px">
+  <div class="wrap">
+    <div id="adminSlot"></div>
+    ${cats.length > 2 ? `<div class="filters" role="group" aria-label="Filtrar por tema">${cats.map(c => `<button class="chip" data-cat="${esc(c)}" aria-pressed="${c===activeCat}">${esc(c)}</button>`).join("")}</div>` : ""}
+    ${list.length ? `<div class="posts">${list.map(postCard).join("")}</div>` : `<div class="empty">Aún no hay entradas publicadas.</div>`}
+  </div>
+</section>`;
+}
+
+function postView(p){
+  if (!p) return `<section class="article"><div class="article-in"><a class="back" href="#/blog">${ico("back")}Volver al blog</a><h1>No encontramos esta entrada</h1><p style="margin-top:14px;color:var(--muted)">Puede que haya sido retirada. Vea las demás entradas del blog.</p></div></section>`;
+  const shareText = p.title + " — Blog Cuidado Vital";
+  return `
+<article class="article">
+  <div class="article-in">
+    <a class="back" href="#/blog">${ico("back")}Volver al blog</a>
+    <h1>${esc(p.title)}</h1>
+    <div class="post-meta"><b>${esc(p.category||"General")}</b><span>${fmtDate(p.date)}</span><span>${readMin(p.body)} min de lectura</span></div>
+    ${p.cover ? `<img class="article-cover" src="${coverSrc(p.cover)}" alt="">` : ""}
+    <div class="prose">${renderBody(p.body)}</div>
+    <div class="article-actions" id="postActions">
+      <a class="btn btn-line btn-sm" href="${"https://wa.me/?text=" + encodeURIComponent(shareText)}" target="_blank" rel="noopener">${ico("chat")}Compartir por WhatsApp</a>
+    </div>
+    <div class="article-cta">
+      <div><h3>¿Quiere conocer el hogar?</h3><p>Agende una visita y resolvemos sus preguntas en persona.</p></div>
+      <a class="btn btn-blue" href="${waLink("Hola, leí el blog de Cuidado Vital y quisiera agendar una visita.")}" target="_blank" rel="noopener">${ico("chat")}Agendar visita</a>
+    </div>
+  </div>
+</article>`;
+}
+
+/* ---------------- router ---------------- */
+const SECTIONS = ["nosotros","un-dia","servicios","planes","contacto"];
+function route(){
+  const h = (location.hash || "#/").replace(/^#\/?/,"");
+  const parts = h.split("/");
+  document.getElementById("nav").classList.remove("open");
+  document.getElementById("menuBtn").setAttribute("aria-expanded","false");
+  document.getElementById("menuBtn").innerHTML = ico("menu");
+  let navKey = "";
+  if (parts[0] === "blog" && parts[1]) {
+    const p = POSTS.find(x => x.slug === decodeURIComponent(parts[1]));
+    app.innerHTML = postView(p);
+    document.title = (p ? p.title + " · " : "") + "Blog Cuidado Vital";
+    navKey = "blog"; window.scrollTo(0,0);
+    if (p) mountPostAdmin(p);
+  } else if (parts[0] === "blog") {
+    app.innerHTML = blogView();
+    document.title = "Blog · Hogar Geriátrico Cuidado Vital";
+    navKey = "blog"; window.scrollTo(0,0);
+    bindBlog(); mountBlogAdmin();
+  } else {
+    if (!document.getElementById("inicio")) { app.innerHTML = homeView(); bindHome(); }
+    document.title = "Hogar Geriátrico Cuidado Vital · Cali";
+    if (SECTIONS.includes(parts[0])) {
+      navKey = parts[0];
+      const el = document.getElementById(parts[0]);
+      if (el) requestAnimationFrame(() => el.scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"}));
+    } else window.scrollTo(0,0);
+  }
+  document.querySelectorAll("[data-nav]").forEach(a => { if (a.dataset.nav === navKey) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
+}
+
+function bindHome(){
+  renderPanel(0);
+  const tabs = [...document.querySelectorAll(".tab")];
+  tabs.forEach((t,i) => {
+    t.addEventListener("click", () => renderPanel(i));
+    t.addEventListener("keydown", e => {
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        const n = (i + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+        renderPanel(n); tabs[n].focus();
+      }
+    });
+  });
+  const cf = document.getElementById("contactForm"), send = document.getElementById("cf-send");
+  const buildText = () => {
+    const v = id => document.getElementById(id).value.trim();
+    const name = v("cf-name"), phone = v("cf-phone"), msg = v("cf-msg"), plan = document.getElementById("cf-plan").value;
+    return `Hola, soy ${name}${phone ? " (tel. " + phone + ")" : ""}. Me interesa agendar una visita al Hogar Cuidado Vital.\nPlan de interés: ${plan}.${msg ? "\n" + msg : ""}`;
+  };
+  const sync = () => { send.href = waLink(buildText()); };
+  cf.addEventListener("input", sync);
+  cf.addEventListener("change", sync);
+  cf.addEventListener("submit", e => e.preventDefault());
+  send.addEventListener("click", e => {
+    if (!document.getElementById("cf-name").value.trim()) { e.preventDefault(); toast("Escriba su nombre para continuar."); document.getElementById("cf-name").focus(); return; }
+    sync();
+  });
+}
+
+function bindBlog(){
+  document.querySelectorAll(".chip").forEach(c => c.addEventListener("click", () => {
+    activeCat = c.dataset.cat; app.innerHTML = blogView(); bindBlog(); mountBlogAdmin();
+  }));
+}
+
+/* ---------------- administración del blog ---------------- */
+let canEdit = false, artifactNS = null;
+async function initAdmin(){
+  if (!window.claude || typeof window.claude.use !== "function") return;
+  try {
+    const user = await window.claude.use("user");
+    canEdit = !!(user && await user.isOwner() && await user.canEdit());
+    if (canEdit) artifactNS = await window.claude.use("artifact");
+    if (!artifactNS) canEdit = false;
+  } catch(e) { canEdit = false; }
+  if (canEdit) { mountBlogAdmin(); const p = currentPost(); if (p) mountPostAdmin(p); }
+}
+function currentPost(){
+  const m = (location.hash||"").match(/^#\/blog\/(.+)$/);
+  return m ? POSTS.find(x => x.slug === decodeURIComponent(m[1])) : null;
+}
+function mountBlogAdmin(){
+  const slot = document.getElementById("adminSlot");
+  if (!slot || !canEdit) return;
+  slot.innerHTML = `<div class="admin-bar"><span>${ico("pen")}Modo administrador: solo usted ve estos controles. Los cambios se publican para todos los visitantes.</span>
+    <button class="btn btn-blue btn-sm" id="newPost">${ico("plus")}Nueva entrada</button></div>`;
+  document.getElementById("newPost").addEventListener("click", () => openEditor(null));
+}
+function mountPostAdmin(p){
+  const box = document.getElementById("postActions");
+  if (!box || !canEdit || box.querySelector("[data-edit]")) return;
+  box.insertAdjacentHTML("beforeend", `<button class="btn btn-line btn-sm" data-edit>${ico("pen")}Editar</button><button class="btn btn-line btn-sm" data-del>${ico("trash")}Eliminar</button>`);
+  box.querySelector("[data-edit]").addEventListener("click", () => openEditor(p));
+  box.querySelector("[data-del]").addEventListener("click", () => confirmDelete(p));
+}
+
+let draftCover = "";
+function openEditor(p){
+  const m = document.getElementById("editor");
+  let saved = null;
+  try { saved = JSON.parse(sessionStorage.getItem("cv-draft") || "null"); } catch(e) {}
+  const usingDraft = saved && (saved.id === (p ? p.id : "new"));
+  const d = usingDraft ? saved : (p || {title:"",category:"",excerpt:"",body:"",cover:"",date:new Date().toISOString().slice(0,10)});
+  draftCover = d.cover || "";
+  const cats = [...new Set(POSTS.map(x => x.category).filter(Boolean))];
+  m.innerHTML = `<div class="dialog">
+    <h2 id="edTitle">${p ? "Editar entrada" : "Nueva entrada"}</h2>
+    ${usingDraft ? `<p class="help">Recuperamos el borrador que no alcanzó a publicarse.</p>` : ""}
+    <div class="field"><label for="ed-title">Título</label><input id="ed-title" value="${esc(d.title)}"></div>
+    <div class="row2">
+      <div class="field"><label for="ed-cat">Tema</label><input id="ed-cat" list="ed-cats" value="${esc(d.category)}" placeholder="Ej.: Prevención"><datalist id="ed-cats">${cats.map(c=>`<option value="${esc(c)}">`).join("")}</datalist></div>
+      <div class="field"><label for="ed-date">Fecha</label><input id="ed-date" type="date" value="${esc(d.date)}"></div>
+    </div>
+    <div class="field"><label for="ed-excerpt">Resumen corto</label><input id="ed-excerpt" value="${esc(d.excerpt)}" maxlength="220" placeholder="Una o dos frases que aparecen en la tarjeta"></div>
+    <div class="field"><label>Imagen de portada</label>
+      <div class="cover-pick"><img id="ed-cover-prev" src="${coverSrc(draftCover)}" alt="">
+        <label class="btn btn-line btn-sm">${ico("image")}Elegir imagen<input type="file" accept="image/*" id="ed-cover" class="sr"></label>
+        <button class="btn btn-line btn-sm" id="ed-cover-clear" type="button">Quitar</button></div></div>
+    <div class="field"><label for="ed-body">Contenido</label><textarea id="ed-body">${esc(d.body)}</textarea>
+      <p class="help">Deje una línea en blanco entre párrafos. Use «## » al inicio de una línea para un subtítulo, «- » para listas y **texto** para negrita.</p></div>
+    <div class="dialog-actions">
+      <button class="btn btn-line" id="ed-cancel" type="button">Cancelar</button>
+      <button class="btn btn-blue" id="ed-save" type="button">${p ? "Guardar cambios" : "Publicar entrada"}</button>
+    </div></div>`;
+  m.classList.add("open");
+  document.getElementById("ed-title").focus();
+  document.getElementById("ed-cancel").onclick = () => { m.classList.remove("open"); try{sessionStorage.removeItem("cv-draft")}catch(e){} };
+  document.getElementById("ed-cover-clear").onclick = () => { draftCover = ""; document.getElementById("ed-cover-prev").src = ""; };
+  document.getElementById("ed-cover").onchange = async e => {
+    const f = e.target.files[0]; if (!f) return;
+    try { draftCover = await shrink(f); document.getElementById("ed-cover-prev").src = draftCover; }
+    catch(err) { toast("No pudimos leer esa imagen. Pruebe con un JPG o PNG."); }
+  };
+  document.getElementById("ed-save").onclick = () => {
+    const v = id => document.getElementById(id).value.trim();
+    const title = v("ed-title"), body = v("ed-body");
+    if (!title) { toast("Escriba un título."); return; }
+    if (!body) { toast("Escriba el contenido de la entrada."); return; }
+    const entry = {
+      id: p ? p.id : "p" + Date.now().toString(36),
+      slug: p ? p.slug : uniqueSlug(slugify(title)),
+      title, category: v("ed-cat") || "General", date: v("ed-date") || new Date().toISOString().slice(0,10),
+      excerpt: v("ed-excerpt") || body.replace(/[#*\-]/g,"").slice(0,160).trim() + "…",
+      cover: draftCover, body
+    };
+    try { sessionStorage.setItem("cv-draft", JSON.stringify(Object.assign({}, entry, {id: p ? p.id : "new"}))); } catch(e) {}
+    const next = p ? POSTS.map(x => x.id === p.id ? entry : x) : [entry, ...POSTS];
+    save(next, p ? "Cambios guardados." : "Entrada publicada.", "#/blog/" + entry.slug);
+  };
+}
+function uniqueSlug(s){ let out = s, n = 2; while (POSTS.some(p => p.slug === out)) out = s + "-" + n++; return out; }
+
+function shrink(file){
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onerror = rej;
+    r.onload = () => {
+      const im = new Image();
+      im.onerror = rej;
+      im.onload = () => {
+        const max = 1400, k = Math.min(1, max / Math.max(im.width, im.height));
+        const c = document.createElement("canvas");
+        c.width = Math.round(im.width * k); c.height = Math.round(im.height * k);
+        c.getContext("2d").drawImage(im, 0, 0, c.width, c.height);
+        res(c.toDataURL("image/jpeg", 0.78));
+      };
+      im.src = r.result;
+    };
+    r.readAsDataURL(file);
+  });
+}
+
+function confirmDelete(p){
+  const m = document.getElementById("confirm");
+  m.innerHTML = `<div class="dialog small"><h2>¿Eliminar esta entrada?</h2><p style="color:var(--muted)">«${esc(p.title)}» dejará de verse en el blog.</p>
+    <div class="dialog-actions"><button class="btn btn-line" id="cd-no">Cancelar</button><button class="btn btn-danger" id="cd-yes">Eliminar</button></div></div>`;
+  m.classList.add("open");
+  document.getElementById("cd-no").onclick = () => m.classList.remove("open");
+  document.getElementById("cd-yes").onclick = () => { m.classList.remove("open"); save(POSTS.filter(x => x.id !== p.id), "Entrada eliminada.", "#/blog"); };
+}
+
+let saving = false;
+async function save(next, okMsg, goTo){
+  if (saving) return;
+  if (!artifactNS) { toast("La edición solo está disponible para quien administra esta página."); return; }
+  saving = true;
+  const btn = document.getElementById("ed-save"); if (btn) { btn.disabled = true; btn.textContent = "Publicando…"; }
+  const json = JSON.stringify(next).replace(/</g,"\\u003c");
+  const html = SRC.replace(/(<script type="application\/json" id="blog-data">)[\s\S]*?(<\/script>)/, (m0,a,b) => a + json + b);
+  try { sessionStorage.setItem("cv-after", JSON.stringify({msg: okMsg, go: goTo})); } catch(e) {}
+  try {
+    await artifactNS.publish(html);
+    try { sessionStorage.removeItem("cv-draft"); } catch(e) {}
+    POSTS = next; document.getElementById("editor").classList.remove("open");
+    location.hash = goTo; route(); toast(okMsg);
+  } catch(err) {
+    const code = err && err.code;
+    try { sessionStorage.removeItem("cv-after"); } catch(e) {}
+    if (code === "conflict") toast("Alguien publicó otra versión. La página se está actualizando.");
+    else if (code === "not_writer" || code === "not_granted" || code === "not_declared" || code === "consent_required") { canEdit = false; toast("Esta vista es de solo lectura."); }
+    else if (code === "too_large") toast("La página quedó muy pesada. Use imágenes más livianas o elimine entradas antiguas.");
+    else if (code === "rate_limited") toast("Demasiadas publicaciones seguidas. Espere un momento.");
+    else toast("No se pudo publicar. Su borrador quedó guardado; intente de nuevo.");
+  } finally {
+    saving = false;
+    if (btn) { btn.disabled = false; btn.textContent = "Publicar entrada"; }
+  }
+}
+
+let tt;
+function toast(msg){ const t = document.getElementById("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("show"), 4200); }
+
+/* ---------------- init ---------------- */
+document.getElementById("year").textContent = new Date().getFullYear();
+const menuBtn = document.getElementById("menuBtn");
+menuBtn.addEventListener("click", () => {
+  const nav = document.getElementById("nav"); const open = nav.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", String(open));
+  menuBtn.innerHTML = ico(open ? "x" : "menu");
+});
+document.addEventListener("keydown", e => { if (e.key === "Escape") document.querySelectorAll(".modal.open").forEach(m => m.classList.remove("open")); });
+document.querySelectorAll(".modal").forEach(m => m.addEventListener("click", e => { if (e.target === m) m.classList.remove("open"); }));
+window.addEventListener("hashchange", route);
+route();
+try {
+  const after = JSON.parse(sessionStorage.getItem("cv-after") || "null");
+  if (after) { sessionStorage.removeItem("cv-after"); sessionStorage.removeItem("cv-draft"); if (after.go && location.hash !== after.go) location.hash = after.go; toast(after.msg); }
+} catch(e) {}
+initAdmin();
+})();
+</script>
+</body>
+</html>
